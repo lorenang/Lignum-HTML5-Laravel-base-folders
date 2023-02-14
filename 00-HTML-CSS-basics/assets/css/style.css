@@ -64,7 +64,7 @@ body {
     justify-content: space-around;
     align-items: center;
 }
-.navigation-container, .content-container, .sidebar-container {
+.content-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -88,6 +88,22 @@ los atributos cuya clase contiene una a y no termina en r*/
 }
 
 /*¿Cómo podría agregar peso a la definición de fuente global(global font definition) para 
-ganarse las clases agregadas por el punto 3?*/
+ganarse las clases agregadas por el punto 3?
+Podria agregarke peso a la definicion de fuente global (global font definition) para que supere
+a las demas clases con un !important al lado del valor de la prop. Por ejemplo, 
+* {
+    font-size: 14px !important;
+}
 
+El !important me va a asegurar que nada anule lo que el configura (a menos que también 
+sea importante). */
 
+/*Imagine que hay una declaración como class=”no-puedo-usar-inline-styles” style=”background:red” 
+y necesita cambiar el fondo a verde sin cambiar el estilo en línea. ¿Cómo podrías lograr esto?
+
+Podria lograrlo separando los elementos con un span, ya que este puede envolver algo de texto 
+dentro de su etiqueta <span></span> sin interrumpir el flujo de ese párrafo. De tal manera el style
+se aplica dentro de la etiqueta span : 
+
+<span style="background:green">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+Recusandae, ex?</span>
