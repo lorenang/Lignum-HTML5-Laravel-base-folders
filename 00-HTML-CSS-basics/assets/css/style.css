@@ -2,8 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 14px;
 }
-
 body {
     font-family: 'Roboto', sans-serif;
     width: 100%;
@@ -11,8 +11,29 @@ body {
     background-color: black;
     position: absolute;
 }
-
-.encabezado, .navigation, .content, .sidebar, .footer  {
+.encabezado {
+    height: 21%;
+    position: relative;
+}
+.encabezado h1 {
+    font-size: 46px;
+}
+.container {
+    position: relative;
+    display: flex;
+    height: 51%;
+    margin: 1%;
+}
+.footer {
+    font-size: 10px;
+    height: 21%;
+    justify-content: space-around; 
+    align-items: center;
+}
+.encabezado, .container {
+    justify-content: space-around;
+} 
+.encabezado, .container, .footer {
     color: white;
     background-color: #3a3a3a;
     position: relative;
@@ -20,55 +41,53 @@ body {
     text-align: center;
     display: flex;
     margin: 1%;
-}
-.encabezado {
-    font-size: 46px;
-    height: auto;
-}
-.container {
-    position: relative;
-    text-align: center;
-    display: flex;
-    height: 50%;
-    width: 100%;
-}
-.encabezado, .container {
-    justify-content: center;
-} 
 
+}
 .navigation {
     font-size: 12px;
-    width: 24%;
-    height: 95%;
+    width: 22%;
 }
 .content {
     font-size: 14px;
-    width: 50%;
-    height: 95%;
+    width: 54%;
 }
-.content-container {
-    height: 95%;
-    width: 98%;
-    text-align: center;
-    display: flex;
-    margin: 1%;
-}
-
 .sidebar {
     font-size: 10px;
-    width: 24%;
-    height: 95%;
+    width: 22%;
 }
-
-.navigation, .content, .sidebar, .content-container {
+.navigation, .content, .sidebar {
+    display: flex;
     flex-direction: column;
-    justify-content: space-around; 
-}
-
-
-.footer {
-    font-size: 10px;
-    height: 30%;
-    justify-content: space-around; 
+    border: 1px solid white;
+    margin: 1%;
+    height: 92%;
+    justify-content: space-around;
     align-items: center;
 }
+.navigation-container, .content-container, .sidebar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 1%;
+    width: 94%;
+    height: 94%;
+}
+
+/*Si el atributo de clase termina con r (ejemplo header, footer), el fondo debe ser magenta.*/
+*[class$="r"] {
+    background-color: magenta;
+}
+/*Si el atributo de clase contiene una a (ejemplo nav) pero NO termina con r, el fondo debe ser 
+azul*/
+/*El carácter * indica que este selector debe seleccionar los elementos sólo si tienen la 
+cadena "a" en cualquier lugar dentro del valor del atributo y utilizo el :not para negar la 
+condicion de selecionar los atributos cuya clase termina en r, por lo tanto me selecciona
+los atributos cuya clase contiene una a y no termina en r*/
+*[class*="a"]:not([class$="r"]) {
+    background-color: blue;
+}
+
+/*¿Cómo podría agregar peso a la definición de fuente global(global font definition) para 
+ganarse las clases agregadas por el punto 3?*/
+
+
