@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<body>
+    <!-- Cree un formulario de "registro" con campos para: nombre, apellido, correo electrónico, 
+        cumpleaños, un menú desplegable para elegir su deporte favorito y un área de texto para 
+        incluir una pequeña biografía para el usuario. Agregue un botón al final para enviar el 
+        formulario y otro para limpiar el formulario. 
+        Agregue reglas de validación relevantes para todos los campos (como campos obligatorios, 
+        correo electrónico válido,etc).
+    -->
+    <form action="" method="post">
+        <label for="name">Nombre*</label>
+        <input type="text" id="name" name="register_name" minlength="5" required>
+        <br>
+        <label for="lastname">Apellido*</label>
+        <input type="text" id="lastname" name="register_lastname" minlength="3" required>
+        <br>
+        <label for="email">Correo electronico*</label>
+        <input type="email" id="email" name="register_email" minlength="10" required>
+        <br>
+        <label for="birthday">Cumpleaños*</label>
+        <input type="date" id="birthday" name="register_birthday" required>
+        <br>
+        <label for="sport">¿Cuál es tu deporte favorito?
+            <abbr title="Este campo es obligatorio" aria-label="required">*</abbr>
+        </label>
+        <input type="text" id="sport" name="register_sport" list="list" required pattern="[Vv]oley|[Ff]utbol|[Bb]asquet|[Hh]ockey|[Cc]estoball|[Oo]range ">
+        <datalist id="list">
+            <option>Voley</option>
+            <option>Futbol</option>
+            <option>Basquet</option>
+            <option>Hockey</option>
+            <option>Cestoball</option>
+        </datalist>
+        <br>
+        <!-- Con select-->
+        <!-- 
+        <label for="sport">Deporte favorito:*</label>
+        <select id="sport" name="register_sport" required>
+            <option value="Voley">Voley</option>
+            <option value="Futbol">Futbol</option>
+            <option value="Basquet">Basquet</option>
+            <option value="Hockey">Hockey</option>
+            <option value="Natacion">Cestoball</option>
+        </select>
+        -->
+        <br>
+        <label for="bio">Biografia:*</label>
+        <textarea id="bio" name="register_bio" required></textarea>
+        <div>
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpiar</button>
+        </div>
+    </form>
+</body>
+</html>
