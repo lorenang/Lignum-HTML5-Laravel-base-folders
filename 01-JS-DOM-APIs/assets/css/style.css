@@ -1,5 +1,12 @@
-div {
-    width: 100%;
+main {
+    align-items: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-  }
+    min-height: 100vh;
+}
+
+.section-hidden {
+    display: none;
+    background-color: #979797;
+}
