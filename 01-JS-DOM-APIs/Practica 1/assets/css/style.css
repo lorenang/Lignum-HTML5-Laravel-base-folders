@@ -9,5 +9,6 @@ main {
 .section-hidden {
     display: none;
     background-color: red;
+    opacity: 0.6;
 }
 
