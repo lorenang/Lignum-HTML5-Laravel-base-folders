@@ -8,5 +8,6 @@ main {
 
 .section-hidden {
     display: none;
-    background-color: #979797;
+    background-color: red;
 }
+

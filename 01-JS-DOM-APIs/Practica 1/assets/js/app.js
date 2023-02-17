@@ -1,3 +1,8 @@
 //Cuando la página termine de cargarse, la section debe aparecer gradualmente (fade in).
 
-var  gradual = document.querySelector(".section-hidden")
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        document.querySelector(".section-hidden").style.display = 'block';
+      }, 900);
+    ;
+})
