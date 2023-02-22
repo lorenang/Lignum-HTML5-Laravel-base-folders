@@ -1,0 +1,26 @@
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.section-hidden {
+    display: none;
+    background-color: red;
+    opacity: 0.2;
+    animation: 5s infinite fadein;
+/*Version larga
+  animation-duration: 5s;
+  animation-name: fadein;
+  animation-iteration-count: infinite;
+  */
+}
+
+
+@keyframes fadein {
+    to {
+      opacity: 1;
+    }
+}

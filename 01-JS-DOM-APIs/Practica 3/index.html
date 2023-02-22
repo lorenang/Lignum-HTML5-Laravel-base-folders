@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>JavaScript, y DOM APIs</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+</head>
+<body>
+    <main>
+         <!--
+            - Obtención de datos
+            Cree una función para obtener la respuesta de http://api.icndb.com/jokes/random.
+            Reemplace el evento de clic del botón con esta nueva función.
+            Escriba la respuesta dentro del elemento de la section.
+            Crear una función reutilizable para realizar llamadas AJAX. Esta función debe aceptar un objeto de configuración y devolver una promesa ES6.
+            Si ocurre un error del servidor, el contenido de la section debe ponerse rojo.
+            
+            Pista: use XMLHttpRequest para obtener datos del servicio.
+        -->
+        <section class="container">
+            <h2>Conexion a API</h2>
+            <p id="respuestaHTTP"></p>
+            <br>
+            <p id="textResp"></p>
+            <p id="textResp2"></p>
+        </section>
+
+        <button id="btn">1</button>
+        <button id="btn2">2</button>
+    </main>
+    
+    <script src="./assets/js/app.js"></script>
+
+</body>
+
+</html>
