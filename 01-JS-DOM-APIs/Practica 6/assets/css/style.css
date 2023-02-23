@@ -6,8 +6,31 @@ main {
       align-items: center;
       display: flex;
       flex-direction: column;
+      gap: 10px;
       justify-content: center;
       min-height: 100vh;
       text-align: center;
-  
+    
+}
+#input_text{
+    height: 30px;
+    width: 250px;
+    border: 1px solid #525252;
+    border-radius: 5px;
+}
+#btn_anadir, 
+#btn_mostrar {
+    border: 1px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#btn_anadir {
+    background-color: aqua;
+    width: 80px;
+    height: 40px;
+}
+#btn_mostrar {
+    background-color:dodgerblue;
+    width: 120px;
+    height: 50px;
 }

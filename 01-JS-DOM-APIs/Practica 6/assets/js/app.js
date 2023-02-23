@@ -2,7 +2,13 @@
 - Escriba una función que tome como entrada una matriz de datos y genere una estructura DOM que represente una tabla. Adjúntelo al cuerpo de una página determinada.
 
 - Pista: usa los metodos document.createElement, document.createTextNode, y Node.appendChild.*/
-let compras = ['pan', 'leche', 'queso', 'queso untable', 'pasta de mani'];
+const compras = new Array('pan', 'leche', 'queso', 'queso untable', 'pasta de mani');
+
+document.getElementById("btn_anadir").addEventListener("click", () =>{
+  const input = document.getElementById("input_text").value;
+  compras.push(input);
+})
+
 
 function generar_tabla(matriz) {
     var body = document.getElementsByTagName("main")[0];// Obtener la referencia del elemento body
@@ -32,7 +38,7 @@ function generar_tabla(matriz) {
     // modifica el atributo "border" de la tabla y lo fija a "2";
     tabla.setAttribute("border", "2");
 }
-var btn = document.getElementById("btn"); // Encuentra el elemento "btn" en el sitio
-btn.onclick = generar_tabla(compras); // Agrega función onclick al elemento
-
+document.getElementById("btn_mostrar").addEventListener("click", () =>{
+  generar_tabla(compras)
+})
 
