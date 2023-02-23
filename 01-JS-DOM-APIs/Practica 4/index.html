@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript, y DOM APIs</title>
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <!-- 4. Obtención de datos con parámetros
+        -Cree una función para obtener la respuesta de https://api.github.com/search/repositories con los parámetros q = 'JavaScript'.
+        -Muestre una lista de repositorios, proporcionada por el servicio, en el lado derecho de la pantalla.
+        Pista: se debe utilizar ul para enumerar los repositorios.
+        -Agregue una entrada con type="text" para realizar una búsqueda de cualquier valor.
+    -->
+    <main>
+        <div class="container">
+            <div class="search">
+                <h3> Buscador de repositorios en GitHub</h3>
+                <input type="text" id="git" placeholder="Que desea buscar?" value="JavaScript">
+                <button class="btn" onclick="getRepositorie()">Buscar!</button>
+            </div>
+            <div class="list">
+
+            </div>
+        </div>
+    </main>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
