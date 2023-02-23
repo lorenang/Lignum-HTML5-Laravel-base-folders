@@ -18,6 +18,7 @@ function obtenerDatos(evento) {
     //load: Se activa cuando una XMLHttpRequesttransacción se completa con éxito. También disponible a través de la propiedad onload del controlador de eventos.
   http.onreadystatechange = (e) => {
     console.log(http.responseText);
+    console.log(http.response)
   }
   http.onload = function() {
     if (http.status != 200) { 
@@ -28,6 +29,7 @@ function obtenerDatos(evento) {
       alert(msg); // ej. 404: Not Found
     } else { // muestro el resultado
       msg = `Hecho, consiguio ${http.response.length} bytes`;
+      //response: Contenido parseado automáticamente basado en .responseType.
       resp.innerHTML = msg;
       alert(msg); // response: es la respuesta del servidor
     }
@@ -61,8 +63,15 @@ btn.onclick = obtenerDatos; // Agrega función onclick al elemento
 const llamadaAJAX = (url, method) => {
     return new Promise((resolve, reject) => {
       const http = new XMLHttpRequest();
+      //onreadystatechange almacena el nombre de la función que se ejecutará cuando el objeto XMLHttpRequest cambie de estado.
       http.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
+          /*readyState Almacena el estado del requerimiento hecho al servidor, pudiendo ser:
+          0 No inicializado (el método open no a sido llamado)
+          1 Cargando (se llamó al método open)
+          2 Cargado (se llamó al método send y ya tenemos la cabecera de la petición HTTP y el status)
+          3 Interactivo (la propiedad responseText tiene datos parciales)
+          4 Completado (la propiedad responseText tiene todos los datos pedidos al servidor)*/
           resolve(
             console.log(this.responseText),
             document.getElementById("textResp2").innerHTML = this.responseText);
@@ -74,6 +83,9 @@ const llamadaAJAX = (url, method) => {
       }
     http.open(method, url);
     http.send();  
+    /*
+    Una vez completada la comunicación, responseText contiene la respuesta del servidor en forma de cadena de texto.
+    responseText del objeto XMLHttpRequest almacena el valor devuelto por el servidor. Normalmente accederemos a la propiedad responseText cuando el objeto XMLHttpRequest nos informa que toda la información fue remitida por el servidor, esto ocurre cuando la propiedad readyState del objeto XMLHttpRequest almacena el valor 4.*/
   }
 )}
 document.getElementById("btn2").addEventListener("click", function(){

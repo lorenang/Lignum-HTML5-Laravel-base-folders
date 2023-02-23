@@ -12,3 +12,12 @@ main {
 .container {
   text-align: center;
 }
+
+button {
+  background-color: cornflowerblue;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 30px;
+  margin: 10px;
+  width: 200px;
+}
