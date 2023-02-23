@@ -8,16 +8,24 @@ body {
   
 .container {
     display: flex;
+    flex-direction: row;
     /*align-items: center;*/
     min-height: 100vh;
 }
 
 .search {
+    align-items: center;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 50%;
     text-align: center;
 
+}
+
+.list {
+    height: auto;
+    width:50%
 }
 
 .btn {
@@ -37,16 +45,7 @@ li {
 }
 
 
-@media (min-width: 1024px) {
-    .search {
-        width: 50%;
-    }
-    .list {
-        height: auto;
-        width:50%
-    }
-}
-@media (min-width: 768px) {
+@media (max-width: 800px) {
     .container {
         flex-direction: column;
     }
@@ -62,7 +61,7 @@ li {
     }
 
 }
-@media (min-width: 320px) {
+@media (max-width: 500px) {
     .container {
         flex-direction: column;
     }

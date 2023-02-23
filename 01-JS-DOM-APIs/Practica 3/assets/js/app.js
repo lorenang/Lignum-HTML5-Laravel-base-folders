@@ -88,6 +88,19 @@ const llamadaAJAX = (url, method) => {
     responseText del objeto XMLHttpRequest almacena el valor devuelto por el servidor. Normalmente accederemos a la propiedad responseText cuando el objeto XMLHttpRequest nos informa que toda la información fue remitida por el servidor, esto ocurre cuando la propiedad readyState del objeto XMLHttpRequest almacena el valor 4.*/
   }
 )}
+
+window.addEventListener('load', 
+  function() { 
+    llamadaAJAX('https://api.chucknorris.io/', 'GET');
+  }, false);
+
+/*
+document.addEventListener('load', 
+  function() {
+    llamadaAJAX('https://api.chucknorris.io/', 'GET');
+  } false);
+
 document.getElementById("btn2").addEventListener("click", function(){
   llamadaAJAX('https://api.chucknorris.io/', 'GET');
 })
+*/
