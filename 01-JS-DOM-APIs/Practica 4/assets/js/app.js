@@ -10,8 +10,8 @@
   https://api.github.com/search/repositories?q={query}
 */
 function getRepositorie() {
-    var request = new XMLHttpRequest();
-    var search = document.getElementById("git").value;
+    let request = new XMLHttpRequest();
+    let search = document.getElementById("git").value;
     request.open("GET", "https://api.github.com/search/repositories?q=" + search, true);
     request.onload = () => show_list(JSON.parse(request.responseText));
     console.log("consola" + request.responseText);
@@ -19,16 +19,17 @@ function getRepositorie() {
   }
   
   function show_list(repo) {
-    var list = document.getElementsByClassName("list")[0];
-    var ul = document.createElement("ul");
+    let list = document.getElementsByClassName("list")[0];
+    let ul = document.createElement("ul");
     console.log(`Hay un total de ${repo.total_count} repositorios`);
-    for (var i in repo) {
+    
+    for (let i in repo) {
         
-        for (var k in repo.items) {
+        for (let k in repo.items) {
         console.log(repo.items[k].name);
         
-        var li = document.createElement("li");
-        var nameRepo = document.createTextNode(repo.items[k].name);
+        let li = document.createElement("li");
+        let nameRepo = document.createTextNode(repo.items[k].name);
         
         li.appendChild(nameRepo);
         ul.appendChild(li);

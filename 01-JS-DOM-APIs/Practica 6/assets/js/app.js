@@ -2,10 +2,10 @@
 - Escriba una función que tome como entrada una matriz de datos y genere una estructura DOM que represente una tabla. Adjúntelo al cuerpo de una página determinada.
 
 - Pista: usa los metodos document.createElement, document.createTextNode, y Node.appendChild.*/
-const compras = new Array('pan', 'leche', 'queso', 'queso untable', 'pasta de mani');
+let compras = new Array('pan', 'leche', 'queso', 'queso untable', 'pasta de mani');
 
 document.getElementById("btn_anadir").addEventListener("click", () =>{
-  const input = document.getElementById("input_text").value;
+  let input = document.getElementById("input_text").value;
   compras.push(input);
 })
 

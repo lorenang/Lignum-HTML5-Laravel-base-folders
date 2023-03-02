@@ -1,0 +1,98 @@
+Actividades
+A pesar de que las palabras MVC ya no sirven para definir la estructura del proyecto, debido a la gran cantidad de capas extra que se agregaron en la complejidad de las aplicaciones, ya que Modelo es solo una parte de la estructura de App, Controller es una parte de Http junto a Middleware, request, routes. Views es una parte de Resources... Las siguientes actividades deben ser realizadas utilizando una estructura de Modelo-Vista-Controlador, un recurso didáctico un poco antiguo que podrían revisar si es que se les escapa algún concepto es este https://styde.net/laravel-5/
+
+Usted dispondrá de 48 horas para entregar o hacer lo mayor posible de las siguientes tareas.
+Crear las migraciones de las siguientes tablas: -> https://laravel.com/docs/7.x/migrations
+
+Película: Año Titulo Duración Sinopsis Imagen ActorPrincipalID
+
+Actor: Nombre FechaNacimiento
+
+Crear las relaciones película-actor y actor-película -> https://laravel.com/docs/7.x/eloquent-relationships
+
+Crear el CRUD de los mismos utilizando eloquent para el manejo de los datos y guardarlos en MySQL -> https://laravel.com/docs/7.x/controllers#resource-controllers
+
+Visualización de imagen de la película y el cargado de la misma desde el ABM (Desde local, no un link a una imagen).
+
+Poder marcar las películas como favoritas y visualizarlo con AJAX.
+
+Extra:
+
+Sencillo:
+
+Botones de clear data de los campos. Drag and Drop para las imágenes
+
+Medio:
+
+buscador con sugerencias - hacer un endpoint de API que devuelva un JSON y le muestre al usuario sugerencias de lo que escribió o el listado de las películas o algo por el estilo ejemplo: https://darkville.tv/ o el de Netflix (puntos extra por este último).
+
+Avanzado:
+
+Websockets - Abrir un websocket y probarlo contra http://www.websocket.org/echo.html
+
+Criterios a tener en cuenta
+*El proyecto deberia ser tan modular como sea posible. Es decir, las funciones de una persona deberian estar en PeliculaController y las de un usuario en UsuarioController, no mezcladas en el mismo archivo.
+
+*El naming de las funciones deberia ser segun funcionalidad y luego el modelo, si el nombre es autodescriptivo todavia mejor. Por ejemplo, si tengo una funcion para crear una persona y otra para crear una pelicula deberian llamarse crearPersona() y crearPelicula()
+
+Consejos
+Las aplicaciones se pueden hacer en cualquier orden, pero talvez seguir estos pasos te ayuden.
+
+*Crear las migraciones sus controladores, modelos y vistas.
+
+*Crear la relación en los modelos.
+
+*Crear las vistas que permitan al superusuario cargar los datos de la película
+
+*Crear la funcionalidad en el controlador para actualizar los datos.
+
+*Crear una vista donde el usuario visualice las películas y pueda darle al botón de "Favorito" (Muestre el cambio con AJAX sin necesidad de recargar la pantalla)
+
+*Crear una vista donde el usuario pueda ver su listado de películas favoritas.
+
+*Crear lo necesario para que el superusuario pueda editar y borrar películas.
+
+¿Como comienzo?
+Primero, piensa cual debería ser la estructura de tu aplicación (Primero estructura de datos de la base de datos, luego en que orden irían las pantallas). No hace falta crear usuarios ni roles, pero sí que las pantallas se diferencien de cual sería para cada uno.
+
+Luego piensa en las pantallas del CRUD de la película/actor. El siguiente paso sería poder visualizar las películas como el usuario que visita la página y permitir elegir como favoritos. Ahora crea la pantalla para ver el listado de las películas favoritas.
+
+Por último, afina los detalles (drag & drop de imágenes, estética, etc.).
+
+
+
+
+PS C:\Users\loren\Documents\Lignum-HTML5-Laravel-base-folders\03-MVC-Laravel> laravel new crud-laravel
+PS C:\Users\loren\Documents\Lignum-HTML5-Laravel-base-folders\03-MVC-Laravel> cd crud-laravel
+PS C:\Users\loren\Documents\Lignum-HTML5-Laravel-base-folders\03-MVC-Laravel\crud-laravel> php artisan serve
+
+   INFO  Server running on [http://127.0.0.1:8000].
+
+  Press Ctrl+C to stop the server
+
+PS C:\Users\loren\Documents\Lignum-HTML5-Laravel-base-folders\03-MVC-Laravel\Laravel-CRUD> php artisan make:migration create_actor_table   
+
+PS C:\Users\loren\Documents\Lignum-HTML5-Laravel-base-folders\03-MVC-Laravel\crud-laravel> php artisan make:migration create_pelicula_table
+
+PS C:\Users\loren\Documents\Lignum-HTML5-Laravel-base-folders\03-MVC-Laravel\crud-laravel> php artisan migrate
+
+PS C:\Users\loren\Documents\Lignum-HTML5-Laravel-base-folders\03-MVC-Laravel\Laravel-CRUD> php artisan make:controller actorController    
+
+PS C:\Users\loren\Documents\Lignum-HTML5-Laravel-base-folders\03-MVC-Laravel\Laravel-CRUD> php artisan make:controller peliculasController
+
+PS C:\Users\loren\Documents\Lignum-HTML5-Laravel-base-folders\03-MVC-Laravel\Laravel-CRUD> php artisan make:model Actor
+
+PS C:\Users\loren\Documents\Lignum-HTML5-Laravel-base-folders\03-MVC-Laravel\Laravel-CRUD> php artisan make:model Pelicula
+
+
+la extensión .blade es el formato del motor de plantillas que usa Laravel para las vista de cualquier proyecto en general. El trabajo con el motor de plantillas blade le da más practicidad, dinamismo entre otras características al trabajo con vistas en Laravel.
+
+
+#https://www.tkserver.com/laravel-database-column-types/ PARA VER LOS TIPOS DE DATOS ACEPTADOS POR LARAVEL
+
+<!-- Laravel nos pide que en cada ejecución de un formulario le pasemos el método correspondiente en este caso PUT y un csrf_token el cual Laravel lo genera automáticamente, solo debemos colocar {{ csrf_token() }} y Laravel hara el trabajo.
+El csrf_token tiene las iniciales CSRF que sinifica Cross-site Request Forgery o en español Falsificación de Petición en Sitios Cruzados el cual Laravel utiliza como medidad de seguridad ante estos posibles ataques de tipo CSRF.
+mediante la directiva @include llamo al formulario prt.blade.php y basta con solo colocar la ruta y el nombre prt para que Laravel lo imprima en la vista -->    
+
+https://blog.nubecolectiva.com/como-crear-un-crud-con-laravel-10-y-bootstrap-5-parte-4/
+https://laravel.com/docs/10.x/queries#joins
