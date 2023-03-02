@@ -2,32 +2,27 @@ Actividades
 A pesar de que las palabras MVC ya no sirven para definir la estructura del proyecto, debido a la gran cantidad de capas extra que se agregaron en la complejidad de las aplicaciones, ya que Modelo es solo una parte de la estructura de App, Controller es una parte de Http junto a Middleware, request, routes. Views es una parte de Resources... Las siguientes actividades deben ser realizadas utilizando una estructura de Modelo-Vista-Controlador, un recurso didáctico un poco antiguo que podrían revisar si es que se les escapa algún concepto es este https://styde.net/laravel-5/
 
 Usted dispondrá de 48 horas para entregar o hacer lo mayor posible de las siguientes tareas.
-Crear las migraciones de las siguientes tablas: -> https://laravel.com/docs/7.x/migrations
-
+- Crear las migraciones de las siguientes tablas: -> https://laravel.com/docs/7.x/migrations
 Película: Año Titulo Duración Sinopsis Imagen ActorPrincipalID
-
 Actor: Nombre FechaNacimiento
 
-Crear las relaciones película-actor y actor-película -> https://laravel.com/docs/7.x/eloquent-relationships
+- Crear las relaciones película-actor y actor-película -> https://laravel.com/docs/7.x/eloquent-relationships
 
-Crear el CRUD de los mismos utilizando eloquent para el manejo de los datos y guardarlos en MySQL -> https://laravel.com/docs/7.x/controllers#resource-controllers
+- Crear el CRUD de los mismos utilizando eloquent para el manejo de los datos y guardarlos en MySQL -> https://laravel.com/docs/7.x/controllers#resource-controllers
 
-Visualización de imagen de la película y el cargado de la misma desde el ABM (Desde local, no un link a una imagen).
+- Visualización de imagen de la película y el cargado de la misma desde el ABM (Desde local, no un link a una imagen).
 
-Poder marcar las películas como favoritas y visualizarlo con AJAX.
+- Poder marcar las películas como favoritas y visualizarlo con AJAX.
 
 Extra:
 
-Sencillo:
-
+- Sencillo:
 Botones de clear data de los campos. Drag and Drop para las imágenes
 
-Medio:
-
+- Medio:
 buscador con sugerencias - hacer un endpoint de API que devuelva un JSON y le muestre al usuario sugerencias de lo que escribió o el listado de las películas o algo por el estilo ejemplo: https://darkville.tv/ o el de Netflix (puntos extra por este último).
 
-Avanzado:
-
+- Avanzado:
 Websockets - Abrir un websocket y probarlo contra http://www.websocket.org/echo.html
 
 Criterios a tener en cuenta

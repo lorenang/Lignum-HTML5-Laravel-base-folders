@@ -52,20 +52,20 @@ class ActorController extends Controller {
         return redirect('admin/actores')->with('message','Guardado Satisfactoriamente !'); 
     }
     //$id será el id del registro asignado en la tabla actor, cada registro cuenta con un id único y nuestro método actualizar() debe saber que registro se va actualizar.
-    public function show($id) {
-        $actor = Actor::find($id);
+    public function show($idActor) {
+        $actor = Actor::find($idActor);
         return view('admin.actores.show', compact('actor')); 
     }
 
-    public function actualize($id) {
-        $actor = Actor::find($id);
-        return view('admin.actores.actualize',['actor'=>$actor]);
+    public function actualize($idActor) {
+        $actor = Actor::find($idActor);
+        return view('admin.actores.actualize',compact('actor'));
     }
     
     // Proceso de Actualización de un Registro (Update)
-    public function update(ItemUpdateRequest $request, $id) {        
+    public function update(ItemUpdateRequest $request, $idActor) {        
         // Recibo todos los datos desde el formulario Actualizar
-        $actor = actor::find($id);
+        $actor = actor::find($idActor);
 
         $actor->name = $request->name;
         $actor->birthdate = $request->birthdate;
@@ -81,12 +81,12 @@ class ActorController extends Controller {
         return Redirect::to('admin/actores');
     }
 
-    public function delete($id){
+    public function delete($idActor){
         // Indicamos el 'id' del registro que se va Eliminar
-        $actor = Actor::find($id);
+        $actor = Actor::find($idActor);
     
         // Elimino el registro de la tabla 'actor' 
-        Actor::destroy($id); 
+        Actor::destroy($idActor); 
     
         // Opcional: Si deseas guardar la fecha de eliminación de un registro, debes mantenerlo en 
         // una tabla llamada por ejemplo 'actores_eliminadas' y alli guardas su fecha de eliminación 

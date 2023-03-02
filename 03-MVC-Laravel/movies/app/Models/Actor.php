@@ -12,7 +12,7 @@ class Actor extends Model
     protected $table = 'actor';
     
     // Declaro los campos que usaré de la tabla 'actor' 
-    protected $fillable = ['id','name', 'birthdate']; 
+    protected $fillable = ['idActor','name', 'birthdate']; 
 
     public function movie() {
         return $this->hasMany(Pelicula::class);

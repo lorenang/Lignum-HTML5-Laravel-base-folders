@@ -20,8 +20,4 @@ class Pelicula extends Model
         return $this->belongsTo(Actor::class);
          //función llamada actor() me sirve para acceder al al actor de esta pelicula. Si no hubiera una base de datos ni claves externas, una declaración como $this->belongsTo no tendría sentido. Es solo porque hay una clave externa en la tabla pelicula que Laravel puede usar ese id para buscar al actor con el mismo id y devuélvelo. Por sí solo, sin la cooperación de la base de datos, Laravel no puede crear relaciones de la nada.
     }
-
-    public function moviesList() {
-        
-    }
 }

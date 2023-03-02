@@ -40,5 +40,20 @@ Route::put('admin/peliculas/update/{id}', 'App\Http\Controllers\PeliculaControll
 Route::put('admin/peliculas/delete/{id}', 'App\Http\Controllers\PeliculaController@delete')->name('admin/peliculas/delete'); 
 
 
+/*VISTA PARA ACTORES*/
+/* Vista Principal */
+Route::get('/admin/actores', 'App\Http\Controllers\ActorController@index')->name('admin/actores');
 
+#Create
+Route::get('admin/actores/create', 'App\Http\Controllers\ActorController@create')->name('admin/actores/create');
+Route::put('admin/actores/store', 'App\Http\Controllers\ActorController@store')->name('admin/actores/store');
 
+#Read
+Route::get('admin/actores/show/{id}', 'App\Http\Controllers\ActorController@show')->name('admin/actores/show'); 
+
+#update
+Route::get('admin/actores/actualize/{id}', 'App\Http\Controllers\ActorController@actualize')->name('admin/actores/actualize');
+Route::put('admin/actores/update/{id}', 'App\Http\Controllers\ActorController@update')->name('admin/actores/update');
+
+#delete
+Route::put('admin/actores/delete/{id}', 'App\Http\Controllers\ActorController@delete')->name('admin/actores/delete'); 

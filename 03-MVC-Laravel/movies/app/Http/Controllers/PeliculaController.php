@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\ItemCreateRequest;
 use App\Http\Requests\ItemUpdateRequest;
 use Illuminate\Support\Facades\Validator;
 
@@ -42,7 +43,7 @@ class PeliculaController extends Controller {
         return view ('admin.peliculas.create', compact('pelicula'), compact('actor'));
     }
 
-    public function store(Request $request)  {
+    public function store(ItemCreateRequest $request)  {
         // Instancio al modelo Pelicula que hace llamado a la tabla 'pelicula' de la Base de Datos
         $pelicula = new Pelicula; 
         // Recibo todos los datos del formulario de la vista 'create.blade.php'
@@ -83,7 +84,7 @@ class PeliculaController extends Controller {
     }
     
     // Proceso de Actualización de un Registro (Update)
-    public function update(Request $request, $id) {        
+    public function update(ItemCreateRequest $request, $id) {        
         // Recibo todos los datos desde el formulario Actualizar
         
         $pelicula = Pelicula::find($id);

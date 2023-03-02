@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('actor', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
-
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
-            $table->date('birthdate');
-
-            $table->softDeletes(); #este campo almacena la fecha y hora en que un registro es eliminado de la tabla
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('actor');
+        Schema::dropIfExists('users');
     }
 };
