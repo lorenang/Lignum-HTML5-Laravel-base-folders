@@ -53,7 +53,8 @@
                                 <td class="v-align-middle">
                                     <img src="{!! asset("uploads/$peli->img") !!}" width="50" class="img-responsive">
                                 </td>
-                                <td class="v-align-middle">{{$peli->name}}</td>
+                                <td class="v-align-middle">{{$peli->actor->name}}</td>
+                                <td class="v-align-middle">{{$peli->actorSec->name}}</td>
                                 <td class="v-align-middle">
                                     <form action="{{ route('admin/peliculas/delete',$peli->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
                                         <input type="hidden" name="_method" value="PUT">

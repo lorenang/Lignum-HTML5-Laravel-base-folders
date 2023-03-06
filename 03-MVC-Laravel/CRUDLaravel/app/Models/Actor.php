@@ -10,6 +10,7 @@ class Actor extends Model
     use HasFactory;
     // Instancio la tabla 'actor' 
     protected $table = 'actor';
+    protected $primaryKey = 'idActor';
     
     // Declaro los campos que usaré de la tabla 'actor' 
     protected $fillable = ['idActor','name', 'birthdate']; 

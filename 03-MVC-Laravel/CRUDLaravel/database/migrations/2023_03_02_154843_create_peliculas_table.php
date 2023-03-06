@@ -22,12 +22,20 @@ return new class extends Migration
             $table->string('img');
             $table->unsignedBigInteger('ActorPrincipalID');
 
+            $table->unsignedBigInteger('ActorSecundarioID');
+
             $table->softDeletes(); #este campo almacena la fecha y hora en que un registro es eliminado de la tabla
 
             $table->foreign('ActorPrincipalID')
                 ->references('idActor')
                 ->on('actor')
                 ->onDelete('cascade');
+
+            $table->foreign('ActorSecundarioID')
+                ->references('idActor')
+                ->on('actor')
+                ->onDelete('cascade');
+
         });
     }
 

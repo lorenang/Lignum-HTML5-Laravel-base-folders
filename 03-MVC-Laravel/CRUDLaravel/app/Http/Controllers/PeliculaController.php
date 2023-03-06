@@ -26,12 +26,13 @@ class PeliculaController extends Controller
 {
     public function index(){
         #https://laravel.com/docs/10.x/queries#joins
-        #$pelicula = Pelicula::all();
+        $pelicula = Pelicula::all();
         //en $pelicula realizo un llamado a todos los registros de la tabla peliculas, luego los envío a la vista index.blade.php que se encuentra en resources > view > admin > peliculas > index.blade.php
         /*SELECT * FROM peliculas P LEFT JOIN actor A on P.ActorPrincipalID = A.idActor;*/
-        $pelicula = DB::table('peliculas')
+
+        /*$pelicula = DB::table('peliculas')
             ->leftJoin('actor', 'peliculas.ActorPrincipalID', '=', 'actor.idActor')
-            ->get();
+            ->get();*/
         return view('admin.peliculas.index', compact('pelicula')); 
     }
 

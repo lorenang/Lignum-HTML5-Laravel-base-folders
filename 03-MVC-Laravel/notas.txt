@@ -91,3 +91,9 @@ mediante la directiva @include llamo al formulario prt.blade.php y basta con sol
 
 https://blog.nubecolectiva.com/como-crear-un-crud-con-laravel-10-y-bootstrap-5-parte-4/
 https://laravel.com/docs/10.x/queries#joins
+
+en el index va create y listado que actualice ek listado  con live 
+leer validators
+
+--
+--con ajax o jquery
