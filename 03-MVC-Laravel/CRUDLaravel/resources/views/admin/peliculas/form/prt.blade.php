@@ -6,16 +6,17 @@
                 <div class="mb-3">
                     <label for="year" class="negrita">Año:</label>
                     <div>
-                        <input class="form-control" placeholder="{{ $pelicula->year }}" required="required" name="year" type="text" id="year" value="{{ $pelicula->year }}">
+                        <input class="form-control" placeholder="{{ $pelicula->year }}" required="required" name="year"
+                            type="text" id="year" value="{{ $pelicula->year }}">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="title" class="negrita">Titulo:</label>
                     <div>
-                        <input class="form-control" placeholder="Titulo" required="required" name="title" type="text" id="title" value="{{ $pelicula->title }}">
+                        <input class="form-control" placeholder="Titulo" required="required" name="title" type="text"
+                            id="title" value="{{ $pelicula->title }}">
                     </div>
                 </div>
-
                 <div class="mb-3">
                     <label for="time" class="negrita">Duracion:</label>
                     <div>
@@ -23,7 +24,6 @@
                             type="text" id="time" value="{{ $pelicula->time }}">
                     </div>
                 </div>
-
                 <div class="mb-3">
                     <label for="sinopsis" class="negrita">Sinopsis:</label>
                     <div>
@@ -33,22 +33,32 @@
                 </div>
 
                 <div class="mb-3">
-					@if ( !empty ( $pelicula->img) )
+                    @if ( !empty ( $pelicula->img) )
                     <span>Imagen Actual: </span>
                     <br>
                     <img src="../../../uploads/{{ $pelicula->img }}" width="300" class="img-fluid">
                     @else
-					<label for="img" class="negrita">Selecciona una imagen:</label>
-					<div>
-						<input name="img" type="file" id="img">
-                        Aún no se ha cargado una imagen para este producto
+                    <label for="img" class="negrita">Selecciona una imagen:</label>
+                    <div>
+                        <input name="img" type="file" id="img">
+                        Aún no se ha cargado una imagen
                     </div>
-					@endif
+                    @endif
                 </div>
 
-				<div class="mb-3">
+                <div class="mb-3">
                     <label for="ActorPrincipalID" class="negrita">Actor Principal:</label>
                     <select id="ActorPrincipalID" name="ActorPrincipalID">
+                        @foreach($actor as $ac)
+                        <option value="{{ $ac->idActor }}" id="idActor" name="idActor">{{ $ac->name }}</option>
+                        @endforeach
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="ActorSecundarioID" class="negrita">Actor Secundario:</label>
+                    <select id="ActorSecundarioID" name="ActorSecundarioID">
                         @foreach($actor as $ac)
                         <option value="{{ $ac->idActor }}" id="idActor" name="idActor">{{ $ac->name }}</option>
                         @endforeach
@@ -56,37 +66,36 @@
                     <p>Si el actor principal no se encuentra en la lista despegable, por favor, añadalo desde <a
                             href="">aqui</a></p>
                 </div>
-
+                <!-- pantalla para nuevo-->
                 @else
-                <div class="mb-3">
-                    <label for="year" class="negrita">Año:</label>
-                    <div>
-                        <input placeholder="Año" class="form-control" required="required" name="year" type="text"
-                            id="year">
+                <div class="panel_info">
+                    <div class="mb-3">
+                        <label for="year" class="negrita">Año:</label>
+                        <div>
+                            <input placeholder="Año" class="form-control" required="required" name="year" type="text"
+                                id="year">
+                        </div>
                     </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="title" class="negrita">Titulo:</label>
-                    <div>
-                        <input class="form-control" placeholder="Titulo" required="required" name="title" type="text"
-                            id="title">
+                    <div class="mb-3">
+                        <label for="title" class="negrita">Titulo:</label>
+                        <div>
+                            <input class="form-control" placeholder="Titulo" required="required" name="title" type="text"
+                                id="title">
+                        </div>
                     </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="time" class="negrita">Duracion:</label>
-                    <div>
-                        <input class="form-control" placeholder="Duracion" required="required" name="time" type="text"
-                            id="time">
+                    <div class="mb-3">
+                        <label for="time" class="negrita">Duracion:</label>
+                        <div>
+                            <input class="form-control" placeholder="Duracion" required="required" name="time" type="text"
+                                id="time">
+                        </div>
                     </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="sinopsis" class="negrita">Sinopsis:</label>
-                    <div>
-                        <input class="form-control" placeholder="Sinopsis" required="required" name="sinopsis"
-                            type="text" id="sinopsis">
+                    <div class="mb-3">
+                        <label for="sinopsis" class="negrita">Sinopsis:</label>
+                        <div>
+                            <input class="form-control" placeholder="Sinopsis" required="required" name="sinopsis"
+                                type="text" id="sinopsis">
+                        </div>
                     </div>
                 </div>
 
@@ -97,25 +106,36 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="ActorPrincipalID" class="negrita">Actor Principal:</label>
-                    <select id="ActorPrincipalID" name="ActorPrincipalID">
-                        <option value="">Seleccione una opcion</option>
-                        @foreach($actor as $ac)
-                        <option value="{{ $ac->idActor }}" id="idActor" name="idActor">{{ $ac->name }}</option>
-                        @endforeach
-                    </select>
-                    <p>Si el actor principal no se encuentra en la lista despegable, por favor, añadalo desde <a href="">aqui</a></p>
-                </div>
+                <div class="panel_actor">
+                    <div class="mb-3">
+                        <label for="ActorPrincipalID" class="negrita">Actor Principal:</label>
+                        <select id="ActorPrincipalID" name="ActorPrincipalID">
+                            <option value="">Seleccione una opcion</option>
+                            @foreach($actor as $ac)
+                            <option value="{{ $ac->idActor }}" id="idActor" name="idActor">{{ $ac->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
+                    <div class="mb-3">
+                        <label for="ActorSecundarioID" class="negrita">Actor Secundario:</label>
+                        <select id="ActorSecundarioID" name="ActorSecundarioID">
+                            <option value="">Seleccione una opcion</option>
+                            @foreach($actor as $ac)
+                            <option value="{{ $ac->idActor }}" id="idActor" name="idActor">{{ $ac->name }}</option>
+                            @endforeach
+                        </select>
+                        <br>
+                    </div>
+                    <p>Si el actor principal no se encuentra en la lista despegable, por favor, añadalo desde <a href="{{ route('admin/actores/create') }}">aqui</a></p>
+                </div>
                 @endif
 
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                <button type="reset" class="btn btn-success">Limpiar</button>
-                <a href="{{ route('admin/peliculas') }}" class="btn btn-warning">Cancelar</a>
-
-                <br>
-                <br>
+                <div class="panel_botton">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="reset" class="btn btn-success">Limpiar</button>
+                    <a href="{{ route('admin/peliculas') }}" class="btn btn-warning">Cancelar</a>
+                </div>
 
             </div>
         </section>

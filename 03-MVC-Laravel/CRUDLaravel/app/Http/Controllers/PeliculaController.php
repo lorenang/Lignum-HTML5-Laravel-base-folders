@@ -27,13 +27,14 @@ class PeliculaController extends Controller
     public function index(){
         #https://laravel.com/docs/10.x/queries#joins
         $pelicula = Pelicula::all();
+        $actor = Actor::all();
         //en $pelicula realizo un llamado a todos los registros de la tabla peliculas, luego los envío a la vista index.blade.php que se encuentra en resources > view > admin > peliculas > index.blade.php
         /*SELECT * FROM peliculas P LEFT JOIN actor A on P.ActorPrincipalID = A.idActor;*/
 
         /*$pelicula = DB::table('peliculas')
             ->leftJoin('actor', 'peliculas.ActorPrincipalID', '=', 'actor.idActor')
             ->get();*/
-        return view('admin.peliculas.index', compact('pelicula')); 
+        return view('admin.peliculas.index', compact('pelicula'), compact('actor')); 
     }
 
     //creo un registro
@@ -52,6 +53,7 @@ class PeliculaController extends Controller
         $pelicula->time = $request->time;
         $pelicula->sinopsis = $request->sinopsis;
         $pelicula->ActorPrincipalID = $request->input('ActorPrincipalID');
+        $pelicula->ActorSecundarioID = $request->input('ActorSecundarioID');
         
         // Almaceno la imagen en la carpeta publica especifica
         $pelicula->img = $request->file('img')->store('/'); 

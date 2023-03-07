@@ -92,8 +92,65 @@ mediante la directiva @include llamo al formulario prt.blade.php y basta con sol
 https://blog.nubecolectiva.com/como-crear-un-crud-con-laravel-10-y-bootstrap-5-parte-4/
 https://laravel.com/docs/10.x/queries#joins
 
-en el index va create y listado que actualice ek listado  con live 
-leer validators
+Buscado de peliculas con AJAX
 
---
---con ajax o jquery
+Livewire que en la misma pantalla cree las peliculas y las visualize automaticamente sin tener que refrescar la pantalla
+
+Asegurarme de hacer validators para laravel
+Y si puedo agregarle validators al livewire mejor
+
+php artisan migrate:fresh  
+
+  Dropping all tables .................................................................................. 158ms DONE
+
+   INFO  Preparing database.
+
+  Creating migration table .............................................................................. 29ms DONE
+
+   INFO  Running migrations.  
+
+  2014_10_12_000000_create_users_table .................................................................. 48ms DONE
+  2014_10_12_100000_create_password_reset_tokens_table .................................................. 60ms DONE
+  2019_08_19_000000_create_failed_jobs_table ............................................................ 44ms DONE
+  2019_12_14_000001_create_personal_access_tokens_table ................................................. 69ms DONE
+  2023_03_02_154710_create_actor_table .................................................................. 20ms DONE
+  2023_03_02_154843_create_peliculas_table ............................................................. 149ms DONE
+
+PS C:\Users\loren\Documents\Lignum-HTML5-Laravel-base-folders\03-MVC-Laravel\CRUDLaravel> php artisan migrate
+ *  History restored
+
+compact — Crea una matriz que contiene variables y sus valores 
+compact() toma un número variable de parámetros. Cada parámetro puede ser una cadena que contenga el nombre de la variable o una matriz de nombres de variables. La matriz puede contener otras matrices de nombres de variables dentro de ella; compact() lo maneja recursivamente
+Devuelve la matriz de salida con todas las variables agregadas.
+
+Componentes en Livewire
+Un componente en Livewire es cualquier elemento de la página en el que tenemos una presentación y una lógica del lado del servidor.
+
+Los componentes se usan desde las vistas de Laravel y son capaces de ser reutilizados de una manera sencilla a lo largo de toda una aplicación, encapsulando toda su complejidad dentro de una sencilla etiqueta.
+
+En Livewire se pueden hacer componentes sencillos y complejos pero casi siempre tendrán dos partes diferenciadas: controlador y vista, aunque también se pueden hacer componentes "inline", en los que se define tanto la lógica como la presentación dentro del controlador.
+
+El controlador
+Que contiene la lógica de PHP que sirve para definir las propiedades y acceder a datos que maneja este componente. En el controlador consiste en una clase, de programación orientada a objetos, donde podemos definir propiedades del componente por medio de propiedades públicas de la propia clase.
+
+
+Practica
+
+- Storages
+.Cree una página con un textarea y un botón para guardar.
+.Guardar el contenido del textarea cuando el usuario haga clic en guardar. Utilice localStorage e IndexedDB.
+.Agregue un botón de borrado para borrar el contenido guardado.
+
+-Drag and Drop
+.Agregue soporte para arrastrar y soltar para cargar archivos de texto.
+
+-WebSockets
+.Abra un socket web y pruébelo con este servicio http://www.websocket.org/echo.html
+Ya que el servicio ya no está disponible esta actividad queda descartada momentaneamente.
+
+-SVG
+.Crear una página web con un elemento SVG para mostrar un gráfico vectorial. Asegúrese de entender cuándo es mejor usar SVG en lugar de mapas de bits y viceversa.
+
+-Canvas
+.Crear una página web con un elemento Canvas. Al cargar la página, dibuje figuras geométricas básicas con colores y trazos aleatorios.
+Usando la API de Canvas, anime la posición de un rectángulo en la pantalla. Asegúrese de no usar setTimeout sino requestTimeFrame para realizar la animación.

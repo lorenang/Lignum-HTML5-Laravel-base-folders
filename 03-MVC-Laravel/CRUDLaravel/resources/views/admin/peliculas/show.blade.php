@@ -42,7 +42,10 @@
         <p class="h6 mb-3">{{ $pelicula->sinopsis }}</p> 
 
         <p class="h5">Actor Principal:</p>
-        <p class="h6 mb-3">{{ $pelicula->name }}</p> 
+        <p class="h6 mb-3">{{$pelicula->actor->name}}</p> 
+
+        <p class="h5">Actor Secundario:</p>
+        <p class="h6 mb-3">{{$pelicula->actorSec->name}}</p> 
 
         <p class="h5">Imagen:</p>
         <img src="../../../uploads/{{ $pelicula->img }}" class="img-fluid" width="20%">                    
