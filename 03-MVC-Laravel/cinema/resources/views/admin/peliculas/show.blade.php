@@ -55,7 +55,7 @@
                 @if($pelicula->img)
                 <p class="h5">Imagen:</p>
                 <img src="../../../../uploads/{{ $pelicula->img }}" class="img-fluid" width="20%">
-
+                
                 <label for="img" class="negrita">Desea cambiar la imagen?:</label>
                 <form wire:submit.prevent="save">
                     <input type="file" wire:model="img" id="img" name="img">

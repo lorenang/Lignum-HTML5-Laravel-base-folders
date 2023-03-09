@@ -132,7 +132,7 @@ https://uniwebsidad.com/libros/ajax/capitulo-10/la-libreria-jquery
 
 - Buscado de peliculas con AJAX. LISTO
 
-- Livewire que en la misma pantalla cree las peliculas y las visualize automaticamente sin tener que refrescar la pantalla
+- Livewire que en la misma pantalla cree las peliculas y las visualize automaticamente sin tener que refrescar la pantalla. LISTO
 
 Asegurarme de hacer validators para laravel
 Y si puedo agregarle validators al livewire mejor
@@ -156,3 +156,89 @@ Ya que el servicio ya no está disponible esta actividad queda descartada moment
 -Canvas
 .Crear una página web con un elemento Canvas. Al cargar la página, dibuje figuras geométricas básicas con colores y trazos aleatorios.
 Usando la API de Canvas, anime la posición de un rectángulo en la pantalla. Asegúrese de no usar setTimeout sino requestTimeFrame para realizar la animación.
+
+
+Es necesario configurar un evento drop en el objeto sobre el cual se soltará el objeto arrastrado. Este evento llamará una función global ondrop que recibe los datos del objeto arrastrado. 
+
+Normalmente, una aplicación incluirá una función de gestión de eventos dragover en el elemento objetivo del arrastre y esa función desactivará el comportamiento de arrastre por defecto del browser. Para añadir esta función necesita incluir una función global ondragover:
+
+puede que una aplicación quiera personalizar el estilo del elemento objetivo del arrastre para indicar visualmente que es una zona drag and drop. 
+
+los eventos dragstart y dragend no son activados cuando se arrastra un archivo al browser desde el SO.
+
+Procesar la acción de soltar [drop]
+El evento drop se ejecuta cuando el usuario suelta el o los archivos. En el siguiente manejador, si el navegador sorporta la interfaz DataTransferItemList (en-US) , el método getAsFile() (en-US) se utiliza para acceder cada fichero; de lo contrario la propiedad DataTransfer (en-US) de la interfaz files (en-US) es usada para acceder cada archivo.
+
+
+function dropHandler(ev) {
+  console.log('Fichero(s) arrastrados');
+
+  // Evitar el comportamiendo por defecto (Evitar que el fichero se abra/ejecute)
+  ev.preventDefault();
+
+  if (ev.dataTransfer.items) {
+    // Usar la interfaz DataTransferItemList para acceder a el/los archivos)
+    for (var i = 0; i < ev.dataTransfer.items.length; i++) {
+      // Si los elementos arrastrados no son ficheros, rechazarlos
+      if (ev.dataTransfer.items[i].kind === 'file') {
+        var file = ev.dataTransfer.items[i].getAsFile();
+        console.log('... file[' + i + '].name = ' + file.name);
+      }
+    }
+  } else {
+    // Usar la interfaz DataTransfer para acceder a el/los archivos
+    for (var i = 0; i < ev.dataTransfer.files.length; i++) {
+      console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
+    }
+  }
+
+  // Pasar el evento a removeDragData para limpiar
+  removeDragData(ev)
+}
+
+Prevenir el comportamiento default de arrastrado en el browser
+El siguiente evento dragover llama a preventDefault() para deshabilitar (turn off) la respuesta estandar drag-and-drop del browser.
+
+function dragOverHandler(ev) {
+  console.log('File(s) in drop zone');
+
+  // Prevent default behavior (Prevent file from being opened)
+  ev.preventDefault();
+}
+
+
+La validación en Livewire debería ser similar a la validación de formulario estándar en Laravel. 
+Livewire proporciona una $rulespropiedad para establecer reglas de validación por componente y un $this->validate()método para validar las propiedades de un componente usando esas reglas.
+
+Si falla la validación, se lanza un estándar ValidationException(y Livewire lo captura), y el $errorsobjeto estándar está disponible dentro de la vista del componente. Debido a esto, cualquier código existente que tenga, probablemente un Blade incluido, para manejar la validación en el resto de su aplicación también se aplicará aquí.
+
+Validando con reglas fuera de la $rulespropiedad
+Si por alguna razón desea validar usando reglas distintas a las definidas en la $rulespropiedad, siempre puede hacerlo pasando las reglas directamente a los métodos validate()y .validateOnly()
+
+Si desea personalizar los mensajes de validación utilizados por un componente de Livewire, puede hacerlo con la $messagespropiedad.
+
+Si desea mantener los mensajes de validación de Laravel predeterminados, pero solo personalizar la :attributeparte del mensaje, puede especificar nombres de atributos personalizados utilizando la $validationAttributespropiedad.
+Puede sustituir la $messagespropiedad por el messages()método en el componente.
+
+Si no está utilizando la $rulespropiedad de validación global, puede pasar mensajes y atributos personalizados directamente a validate().
+
+tener en cuenta sobre las propiedades públicas antes de embarcarse en su viaje Livewire:
+
+Los nombres de propiedad no pueden entrar en conflicto con los nombres de propiedad reservados para Livewire (por ejemplo, ruleso messages)
+Los datos almacenados en propiedades públicas se hacen visibles para el JavaScript front-end. Por lo tanto, NO DEBE almacenar datos confidenciales en ellos.
+Las propiedades SOLO pueden ser tipos de datos compatibles con JavaScript ( string, int, array, boolean), O uno de los siguientes tipos de PHP: Stringable, Collection, DateTime, Model, EloquentCollection.
+
+Livewire también pone $this->fill()a su disposición un método para casos en los que tiene que establecer muchas propiedades y desea eliminar el ruido visual.
+
+Puede agregar wire:modela cualquier elemento que envíe un inputevento. Incluso elementos personalizados o bibliotecas de JavaScript de terceros.
+Los elementos comunes para usar wire:modelen incluyen:
+
+Etiqueta de elemento
+<input type="text">
+<input type="radio">
+<input type="checkbox">
+<select>
+<textarea>
+
+
+https://github.com/diarioprogramador/crud-con-laravel-8-y-livewire/blob/main/resources/views/livewire/form.blade.php

@@ -22,7 +22,6 @@
                         <td class="v-align-middle text-center">{{$ac->name}}</td>
                         <td class="v-align-middle text-center">{{$ac->birthdate}}</td>
                         <td class="v-align-middle text-center">
-                            <a href="#" class="btn btn-dark">Detalles</a>
                             <button type="button" class="btn btn-primary"
                                 wire:click='edit({{ $ac->idActor }})'>Editar</button>
                             <button type="submit" class="btn btn-danger"

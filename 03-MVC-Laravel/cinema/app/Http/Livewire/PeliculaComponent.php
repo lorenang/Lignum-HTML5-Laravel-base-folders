@@ -29,9 +29,9 @@ class PeliculaComponent extends Component
     public function save(){
         $this->validate([
             'year' => 'required',
-            'title' => 'required',
+            'title' => 'required|min:6',
             'time' => 'required',
-            'sinopsis' => 'required'
+            'sinopsis' => 'required|min:10'
         ]);
  
         Pelicula::create([
@@ -62,11 +62,13 @@ class PeliculaComponent extends Component
     }
 
     public function update(){
+        //Livewire proporciona una $rulespropiedad para establecer reglas de validación por componente
+        //$this->validate():método para validar las propiedades de un componente usando las reglas de $rulespropiedad.
         $this->validate([
             'year' => 'required',
-            'title' => 'required',
+            'title' => 'required|min:6',
             'time' => 'required',
-            'sinopsis' => 'required'
+            'sinopsis' => 'required|min:10'
         ]);
         $pelicula = Pelicula::find($this->idPelicula);
         $pelicula->update([
@@ -76,21 +78,22 @@ class PeliculaComponent extends Component
             'sinopsis'=> $this->sinopsis,
 
             'img'=>$this->img->store('/'),
+            'img'=> $this->img->store('/'),
             'ActorPrincipalID'=> $this->ActorPrincipalID,
             'ActorSecundarioID'=> $this->ActorSecundarioID
 
         ]);
 
+        //$this->reset() para restablecer mediante programación los valores de propiedad pública a su estado inicial. Esto es útil para limpiar los campos de entrada después de realizar una acción.
         $this->reset();
     }
 
     public function destroy($idPelicula){         
         Pelicula::destroy($idPelicula);     
-
         $pelicula = Pelicula::find($idPelicula);
         // Elimino la imagen de la carpeta 'uploads'
-        $img = explode(",", $pelicula->img);
-        Storage::delete($img);
+        //$img = explode(",", $pelicula->img);
+        //uploads::delete($img);
         // Opcional: Si deseas guardar la fecha de eliminación de un registro, debes mantenerlo en 
         // una tabla llamada por ejemplo 'peliculas_eliminadas' y alli guardas su fecha de eliminación 
         // $pelicula->deleted_at = (new DateTime)->getTimestamp(); 

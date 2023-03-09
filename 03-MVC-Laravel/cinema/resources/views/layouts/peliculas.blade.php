@@ -20,6 +20,8 @@
 <body>
     <header class="p-3 text-bg-dark">
         <a href="{{ url('/home') }}" class="h1">Cinema</a>
+        <a href="{{ route('admin/peliculas') }}" class="h5">Peliculas</a>
+        <a href="{{ route('admin/actores') }}" class="h5">Actores</a>
     </header>
 
     <main class="py-4">
