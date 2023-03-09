@@ -6,18 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peliculas</title>
+
+    <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!--CSS-->
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-
+    @livewireStyles
 </head>
 
 <body>
@@ -43,6 +39,7 @@
                     enctype="multipart/form-data">
                     <input type="hidden" name="_method" value="PUT">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <!--Incluyo el formulario para crear-->
                     @include('admin.peliculas.form.prt')
                 </form>
             </section>
@@ -76,13 +73,12 @@
                                 </td>
                                 <td class="v-align-middle">{{$peli->actor->name}}</td>
                                 <td class="v-align-middle">{{$peli->actorSec->name}}</td>
-                                <td class="v-align-middle">
+                                <td class="v-align-middle text-center">
                                     <form action="{{ route('admin/peliculas/delete',$peli->id) }}" method="POST"
                                         class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
                                         <input type="hidden" name="_method" value="PUT">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <a href="{{ route('admin/peliculas/show',$peli->id) }}"
-                                            class="btn btn-dark">Detalles</a>
+                                        <a href="{{ route('admin/peliculas/show',$peli->id) }}" class="btn btn-dark">Detalles</a>
                                         <a href="{{ route('admin/peliculas/actualize',$peli->id) }}"
                                             class="btn btn-primary">Editar</a>
                                         <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -92,8 +88,8 @@
                             @endforeach
                         </tbody>
                     </table>
-
                 </div>
+
             </section>
 
             <section class="example mt-4 section_search">
@@ -111,6 +107,7 @@
     </div>
 
     <script src="{{ asset('js/app.js')}}"></script>
+    @livewireScripts
 </body>
 
 </html>

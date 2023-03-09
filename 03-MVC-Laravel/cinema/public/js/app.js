@@ -1,4 +1,3 @@
-//alert para confirmar la eliminacion
 function confirmarEliminar() {
     var x = confirm("Estas seguro de Eliminar?");
     if (x){
@@ -61,3 +60,7 @@ function searchPeli(){
     }
   });
 }
+
+document.getElementById('buscar').addEventListener('click', function() {
+    document.getElementById('contenido').innerHTML = '';
+ });

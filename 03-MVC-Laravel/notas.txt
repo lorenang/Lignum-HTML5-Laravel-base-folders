@@ -92,12 +92,6 @@ mediante la directiva @include llamo al formulario prt.blade.php y basta con sol
 https://blog.nubecolectiva.com/como-crear-un-crud-con-laravel-10-y-bootstrap-5-parte-4/
 https://laravel.com/docs/10.x/queries#joins
 
-Buscado de peliculas con AJAX
-
-Livewire que en la misma pantalla cree las peliculas y las visualize automaticamente sin tener que refrescar la pantalla
-
-Asegurarme de hacer validators para laravel
-Y si puedo agregarle validators al livewire mejor
 
 php artisan migrate:fresh  
 
@@ -133,7 +127,15 @@ En Livewire se pueden hacer componentes sencillos y complejos pero casi siempre 
 El controlador
 Que contiene la lógica de PHP que sirve para definir las propiedades y acceder a datos que maneja este componente. En el controlador consiste en una clase, de programación orientada a objetos, donde podemos definir propiedades del componente por medio de propiedades públicas de la propia clase.
 
+https://uniwebsidad.com/libros/ajax/capitulo-10/la-libreria-jquery
 
+
+- Buscado de peliculas con AJAX. LISTO
+
+- Livewire que en la misma pantalla cree las peliculas y las visualize automaticamente sin tener que refrescar la pantalla
+
+Asegurarme de hacer validators para laravel
+Y si puedo agregarle validators al livewire mejor
 Practica
 
 - Storages
