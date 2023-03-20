@@ -25,4 +25,11 @@ class PeliculaController extends Controller
         return view('admin.peliculas.show', compact('pelicula')); 
     }
 
+    public function guardar(Request $request){
+        
+        dd($request->all());
+        
+        
+    }
+
 }

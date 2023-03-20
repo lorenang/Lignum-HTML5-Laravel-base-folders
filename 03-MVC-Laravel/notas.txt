@@ -230,7 +230,7 @@ Las propiedades SOLO pueden ser tipos de datos compatibles con JavaScript ( stri
 
 Livewire también pone $this->fill()a su disposición un método para casos en los que tiene que establecer muchas propiedades y desea eliminar el ruido visual.
 
-Puede agregar wire:modela cualquier elemento que envíe un inputevento. Incluso elementos personalizados o bibliotecas de JavaScript de terceros.
+Puede agregar wire:model a cualquier elemento que envíe un inputevento. Incluso elementos personalizados o bibliotecas de JavaScript de terceros.
 Los elementos comunes para usar wire:modelen incluyen:
 
 Etiqueta de elemento

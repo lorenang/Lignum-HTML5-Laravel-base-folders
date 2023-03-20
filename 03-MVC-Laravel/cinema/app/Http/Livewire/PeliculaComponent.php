@@ -9,6 +9,7 @@ use Livewire\WithFileUploads;
 use App\Models\Pelicula;
 use App\Models\Actor;
 
+
 class PeliculaComponent extends Component
 {
     use WithPagination;
@@ -64,6 +65,7 @@ class PeliculaComponent extends Component
     public function update(){
         //Livewire proporciona una $rulespropiedad para establecer reglas de validación por componente
         //$this->validate():método para validar las propiedades de un componente usando las reglas de $rulespropiedad.
+        //en este caso deseo validar usando reglas distintas a las definidas en la $rulespropiedad y lo hago pasando las reglas directamente a los métodos validate()
         $this->validate([
             'year' => 'required',
             'title' => 'required|min:6',
@@ -76,14 +78,10 @@ class PeliculaComponent extends Component
             'title'=> $this->title,
             'time'=> $this->time,
             'sinopsis'=> $this->sinopsis,
-
             'img'=>$this->img->store('/'),
-            'img'=> $this->img->store('/'),
             'ActorPrincipalID'=> $this->ActorPrincipalID,
             'ActorSecundarioID'=> $this->ActorSecundarioID
-
         ]);
-
         //$this->reset() para restablecer mediante programación los valores de propiedad pública a su estado inicial. Esto es útil para limpiar los campos de entrada después de realizar una acción.
         $this->reset();
     }
@@ -99,5 +97,7 @@ class PeliculaComponent extends Component
         // $pelicula->deleted_at = (new DateTime)->getTimestamp(); 
         // Muestro un mensaje y redirecciono a la vista principal 
     }
+
+    
 
 }

@@ -31,3 +31,7 @@ Route::get('admin/peliculas/show/{id}', 'App\Http\Controllers\PeliculaController
 /*RUTAS PARA ACTORES*/
 Route::get('/admin/actores', 'App\Http\Controllers\ActorController@index')->name('admin/actores');
 
+
+Route::put('admin/peliculas/api/store', 'App\Http\Controllers\PeliculaController@guardar');
+
+
